@@ -1,0 +1,72 @@
+.onGoingPageContainer, .allGamesPageContainer {
+    padding: 40px ;
+    padding-bottom: 0;
+}
+.onGoingPageContainer .backHeading, .allGamesPageContainer .backHeading{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.backHeading{
+    margin-bottom: 70px;
+}
+.backHeading img{
+    margin-bottom: 3px;
+}
+.onGoingGamesGrid{
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.cardWidth{
+    width: 207px;
+}
+
+@media screen and (max-width: 1150px) {
+    .onGoingGamesGrid{
+        grid-template-columns:  1fr 1fr 1fr 1fr;
+    }
+  }
+
+  @media screen and (max-width: 950px) {
+    .onGoingGamesGrid{
+        grid-template-columns:  1fr 1fr 1fr;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .onGoingGamesGrid{
+        grid-template-columns:  1fr 1fr;
+    }
+  }
+  @media screen and (max-width: 520px) {
+    .onGoingGamesGrid{
+        grid-template-columns:  1fr;
+    }
+    .onGoingPageContainer, .allGamesPageContainer {
+        padding: 40px 20px;
+    }
+    .onGoingPageContainer .backHeading, .allGamesPageContainer .backHeading{
+        gap: 5px;
+    }
+    .cardWidth{
+        width: 380px;
+    }
+    .backHeading h1{
+        font-size: 20px;
+    }
+    .backHeading img{
+        width: 24px;
+    }
+  }
+  @media screen and (max-width: 425px) {
+    .cardWidth{
+        width: 300px;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    .cardWidth{
+        width: 207px;
+    }
+  }
+  

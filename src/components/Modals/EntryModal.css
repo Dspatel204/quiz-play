@@ -1,0 +1,96 @@
+.entryModal {
+  background-image: url("../../Assets/images/entryBackground.png");
+  background-repeat: no-repeat;
+  object-fit: cover;
+  /* padding-bottom: 0px;
+  padding-top: 10px; */
+  width: 60vw;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.gameimg {
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.entry-content {
+  background-color: white;
+  border-radius: 10px;
+  margin: 5% 10%;
+  padding: 20px 13%;
+}
+.gray {
+  color: gray;
+}
+.entry-content .top-div span {
+  font-size: 15px;
+  margin-left: 5px;
+}
+.entry-left .prize-text {
+  font-size: 20px;
+}
+.entry-left .prize-number {
+  font-size: 25px;
+  font-weight: 500;
+}
+.elements-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.entry-center .liveBtn {
+  background: #107b0d4d;
+  border-radius: 5px;
+  padding: 5px;
+  width: 83px;
+  color: #137829;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+.entry-center p {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.entry-right p {
+  font-size: 20px;
+}
+.entry-right button {
+  background: #fe6244;
+  border-radius: 5px;
+  color: white;
+  padding: 7px 35px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+}
+.quiz-slot .quiz-slot-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+.quiz-slot .slot-filled {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1024px) {
+  .entryModal {
+    width: 80vw;
+  }
+  .entry-content {
+    padding: 20px 10%;
+}
+}
+@media screen and (max-width: 768px) {
+  .entryModal {
+    width: 90vw;
+  }
+  .entry-content {
+    background-color: white;
+    border-radius: 10px;
+    margin: 5% 10%;
+    padding: 20px 5%;
+}
+}

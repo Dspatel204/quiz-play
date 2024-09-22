@@ -1,0 +1,87 @@
+
+.modal-window{
+  padding: 40px 7%;
+  background-color: rgba(255, 255, 255, 0.344) !important;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  color: white;
+}
+
+
+.close-modal-div {
+  width: 40px;
+  height: 40px;
+  top: 15px;
+  right: 15px;
+  z-index: 0;
+  background-color: black;
+  position: absolute;
+  border-radius: 0px 15px 0px 15px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.modal-header-title {
+  color: white ;
+  text-align: center ;
+  font-size: 35px ;
+  margin-bottom: 20%;
+}
+
+.custom-inputs {
+  background-color: transparent ;
+  color: #fff ;
+  margin-bottom: 40px ;
+  border: none ;
+  border-bottom: 2px solid white ;
+  outline: none ;
+  border-radius: 0 ;
+  padding: 0.15rem 0.75rem ;
+  font-size: 16px;
+  width: 100%;
+}
+
+.custom-inputs::placeholder {
+  color: white ;
+  font-size: 16px;
+}
+
+.submit-btn{
+border-radius: 10px;
+width: 100%;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+linear-gradient(90deg, #FF6F38 9.21%, #FE3939 105.26%);
+font-size: 20px;
+font-weight: 600;
+padding: 5px 0;
+outline: none;
+border: none;
+color: #fff;
+}
+
+.fontStyle{
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.input-icon{
+  position: absolute;
+  color: white;
+  right: 10px;
+  top: 10px;
+}
+
+.rem-pass{
+  font-size: 14px;
+}
+
+
+@media screen and (max-width:425px) {
+  
+  .custom-inputs {
+    margin-bottom: 30px !important;
+  }
+}

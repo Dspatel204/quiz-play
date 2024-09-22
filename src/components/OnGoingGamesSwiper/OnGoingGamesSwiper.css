@@ -1,0 +1,172 @@
+/* Ongoing Games */
+
+.pl {
+  padding-left: 5px;
+  padding-top: 10px;
+}
+
+.ongoingCard {
+  /* width: 207px; */
+  position: relative;
+  border-radius: 20.7px;
+  box-shadow: 0px 4.968000411987305px 8.279999732971191px 1.656000018119812px
+    #00000040;
+  padding: 18.5px;
+  overflow: visible !important;
+  margin: 70px 0;
+}
+.ongoingImgWrapper {
+  position: relative;
+  height: 72px; /* Adjust this height as needed */
+  border-radius: 20.7px 20.7px 0 0;
+}
+
+.ongoingImgs {
+  width: 169.7px !important;
+  height: 164px !important;
+  margin-top: -92px; /* Half of the height of .ongoingImgWrapper */
+  border-radius: 21.58px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pricePoolMain {
+  display: flex;
+  gap: 18px;
+}
+
+.pricePool,
+.pricePoolMoney {
+  color: #000000;
+  font-family: "Raleway-SemiBold", Helvetica;
+  font-size: 15.1px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  margin: 12px 0 0 0;
+}
+
+input[type="range"] {
+  accent-color: #d76321;
+  background-color: #fff !important;
+  width: 100%;
+  height: 4px;
+}
+
+.spotsMain {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spotsLeft,
+.spotsNum {
+  font-family: sans-serif;
+  font-size: 10px;
+  font-weight: 600 !important;
+  line-height: 10px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.spotsLeft {
+  color: #d76321;
+}
+
+.medalsTrophyMain {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+}
+
+.entryBtn {
+  width: 110.97px;
+  height: 34.52px;
+  border-radius: 25.55px;
+  background: linear-gradient(0deg, #d76321, #d76321),
+    linear-gradient(90deg, #ff6f38 9.21%, #fe3939 105.26%);
+  box-shadow: 0px 2px 6px 0px #0000005e;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #fff;
+  border: none;
+  padding: 7px 12px;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+}
+
+.justifyCenter {
+  justify-content: space-between;
+}
+
+.fs {
+  font-size: 19.5px;
+  font-family: sans-serif;
+  line-height: 22px;
+}
+
+.btnChanges {
+  font-size: 16px;
+  line-height: 19px;
+  padding: 7px 15px;
+}
+
+/* Add these styles to your CSS */
+
+.swiper-container {
+  position: relative;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0px 2.133333444595337px 5.333333492279053px 1.0666667222976685px
+    #00000040;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999; /* Higher z-index value */
+}
+
+.swiper-button-next {
+  right: -20px; /* Adjust this value to move the next button outside */
+}
+
+.swiper-button-prev {
+  left: -20px; /* Adjust this value to move the prev button outside */
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 28.6px;
+  font-weight: bold;
+  color: #a49d9d;
+}
+
+@media (max-width: 810px) {
+  .pricePool,
+  .pricePoolMoney {
+    font-size: 15.1px;
+  }
+}
+
+
