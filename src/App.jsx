@@ -12,17 +12,22 @@ import { useState } from "react";
 import ModalManager from "./ModalManager";
 
 function App() {
-  const [modalOpen, setModal] = useState(false);
+  const [modalOpen, setModal] = useState("");
 
-  const openModal = event => {
+  const openModal = (event) => {
+    const target = event.target.closest?.("[data-modal]");
+    if (!target) return;
     event.preventDefault();
-    const {
-      target: {
-        dataset: { modal },
-      },
-    } = event;
+    const modal = target.dataset.modal;
     if (modal) setModal(modal);
   };
+
+  const openQuizModal = (quizId) => {
+    setModal(`modal-quiz-${quizId}`);
+  };
+
+  const openLoginModal = () => setModal("modal-login");
+  const openRegisterModal = () => setModal("modal-register");
 
   const closeModal = () => {
     setModal("");
@@ -42,7 +47,13 @@ function App() {
             <Route path="/allGames" element={<AllGames />} />
             <Route path="/latestFeed" element={<LatestFeedd />} />
           </Routes>
-          <ModalManager closeFn={closeModal} modal={modalOpen} />
+          <ModalManager
+            closeFn={closeModal}
+            modal={modalOpen}
+            openQuizModal={openQuizModal}
+            openLoginModal={openLoginModal}
+            openRegisterModal={openRegisterModal}
+          />
           <Footer />
         </div>
       </BrowserRouter>

@@ -5,7 +5,7 @@ import { IoMdMail } from "react-icons/io";
 import { FaLock, FaPhone } from "react-icons/fa6";
 import closeIcon from "../../Assets/images/close.png";
 
-const RegisterModal = ({ closeFn = () => null, open = false }) => {
+const RegisterModal = ({ closeFn = () => null, open = false, openLoginModal = () => null, openQuizModal = () => null }) => {
   const [formData, setFormData] = useState({
     phoneNumber: "",
     email: "",
@@ -136,13 +136,20 @@ const RegisterModal = ({ closeFn = () => null, open = false }) => {
                 <button className="submit-btn" type="submit" onClick={handleSubmit}>
                   Register
                 </button>
+                <button
+                  type="button"
+                  className="secondary-btn"
+                  onClick={() => openQuizModal()}
+                >
+                  Continue with demo quiz
+                </button>
               </form>
               <p className="fontStyle text-light text-center mt-4 mb-5">
                 Already have an account?{" "}
                 <span
                   className="me-3 fw-bold"
                   style={{ cursor: "pointer" }}
-                  data-modal="modal-login"
+                  onClick={openLoginModal}
                 >
                   Login
                 </span>

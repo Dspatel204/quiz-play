@@ -103,7 +103,10 @@ function Home() {
                       <span className="spanBtn">{value.btn}</span>
                     </div>
                     <p>{value.detail}</p>
-                    <button className="joinNowBtn">
+                    <button
+                      className="joinNowBtn"
+                      data-modal={`modal-quiz-${value.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
                       Play Now <TiArrowRightThick size={20} />
                     </button>
                   </div>

@@ -4,7 +4,7 @@ import closeIcon from "../../Assets/images/close.png";
 import { IoMdMail } from "react-icons/io";
 
 
-const LoginScreen = ({ closeFn }) => {
+const LoginScreen = ({ closeFn, openRegisterModal = () => null, openQuizModal = () => null }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -74,15 +74,22 @@ const LoginScreen = ({ closeFn }) => {
                 <p>Forget Password?</p>
               </div>
             </div>
-            <button className="submit-btn" type="submit" >
+            <button className="submit-btn" type="submit">
               Login
+            </button>
+            <button
+              type="button"
+              className="secondary-btn"
+              onClick={() => openQuizModal()}
+            >
+              Try demo quiz instead
             </button>
             <p className="fontStyle text-light text-center mt-4 mb-5">
               Don't have an account?{" "}
               <span
-                className="me-3 fw-bold "
+                className="me-3 fw-bold"
                 style={{ cursor: "pointer" }}
-                data-modal="modal-register"
+                onClick={openRegisterModal}
               >
                 Register
               </span>

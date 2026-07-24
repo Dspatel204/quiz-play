@@ -6,12 +6,10 @@ import LoginScreen from "./LoginScreen";
 // import { FaLock } from "react-icons/fa6";
 import "./Modal.css";
 
-const LoginModal = ({ closeFn = () => null, open = false }) => {
-  
-
+const LoginModal = ({ closeFn = () => null, open = false, openRegisterModal = () => null, openQuizModal = () => null }) => {
   return (
     <Modal open={open}>
-      <LoginScreen closeFn={closeFn}/>
+      <LoginScreen closeFn={closeFn} openRegisterModal={openRegisterModal} openQuizModal={openQuizModal} />
     </Modal>
   );
 };
