@@ -1,12 +1,17 @@
-
 .modal-window{
   padding: 40px 7%;
-  background-color: rgba(255, 255, 255, 0.344) !important;
+  background-color: var(--bg-card, rgba(255, 255, 255, 0.344)) !important;
   backdrop-filter: blur(20px);
   border-radius: 20px;
-  color: white;
+  color: var(--text-primary, white);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
 }
 
+.dark .modal-window {
+  background-color: var(--bg-card, #1e293b) !important;
+  border-color: rgba(255, 255, 255, 0.06);
+}
 
 .close-modal-div {
   width: 40px;
@@ -14,52 +19,63 @@
   top: 15px;
   right: 15px;
   z-index: 0;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
-  border-radius: 0px 15px 0px 15px ;
+  border-radius: 0px 15px 0px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-
+.close-modal-div:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 .modal-header-title {
-  color: white ;
-  text-align: center ;
-  font-size: 35px ;
+  color: white;
+  text-align: center;
+  font-size: 35px;
   margin-bottom: 20%;
 }
 
 .custom-inputs {
-  background-color: transparent ;
-  color: #fff ;
-  margin-bottom: 40px ;
-  border: none ;
-  border-bottom: 2px solid white ;
-  outline: none ;
-  border-radius: 0 ;
-  padding: 0.15rem 0.75rem ;
+  background-color: transparent;
+  color: #fff;
+  margin-bottom: 40px;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  border-radius: 0;
+  padding: 0.15rem 0.75rem;
   font-size: 16px;
   width: 100%;
 }
 
 .custom-inputs::placeholder {
-  color: white ;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 16px;
 }
 
 .submit-btn{
-border-radius: 10px;
-width: 100%;
-background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-linear-gradient(90deg, #FF6F38 9.21%, #FE3939 105.26%);
-font-size: 20px;
-font-weight: 600;
-padding: 5px 0;
-outline: none;
-border: none;
-color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+  linear-gradient(90deg, #FF6F38 9.21%, #FE3939 105.26%);
+  font-size: 20px;
+  font-weight: 600;
+  padding: 5px 0;
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 107, 56, 0.4);
 }
 
 .fontStyle{
@@ -77,6 +93,7 @@ color: #fff;
   color: #ffffff;
   margin-top: 1rem;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .secondary-btn:hover {
@@ -151,10 +168,17 @@ color: #fff;
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .modal-window {
+    padding: 24px 4%;
+  }
 }
 
 @media screen and (max-width:425px) {
   .custom-inputs {
     margin-bottom: 30px !important;
+  }
+  .quiz-modal-window {
+    max-width: 100%;
   }
 }

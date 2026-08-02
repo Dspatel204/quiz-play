@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../Assets/images/transparentlogo.png";
 import { useNavLink } from "../../context/NavLinkContext";
@@ -21,29 +21,38 @@ const AppNavbar = ({ openModal }) => {
     { name: "About", path: "/about" },
   ];
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setMobileMenuOpen(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [mobileMenuOpen]);
+
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-[#090d16]/80 border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link 
-          to="/home" 
-          className="flex items-center gap-3 group" 
+        <Link
+          to="/home"
+          className="flex items-center gap-2 sm:gap-3 group flex-shrink-0"
           onClick={closeMobileMenu}
         >
-          <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 p-0.5 group-hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/25">
+          <div className="relative flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 p-0.5 group-hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/25">
             <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center overflow-hidden">
               <img
                 alt="QuizPlay Logo"
                 src={logo}
-                className="w-9 h-9 object-contain"
+                className="w-7 h-7 sm:w-9 sm:h-9 object-contain"
               />
             </div>
           </div>
-          <div>
-            <h1 className="text-2xl font-extrabold tracking-wider bg-gradient-to-r from-purple-600 via-pink-500 to-rose-500 dark:from-purple-400 dark:via-pink-400 dark:to-rose-400 bg-clip-text text-transparent group-hover:opacity-90 transition-opacity">
+          <div className="hidden sm:block">
+            <h1 className="text-xl sm:text-2xl font-extrabold tracking-wider bg-gradient-to-r from-purple-600 via-pink-500 to-rose-500 dark:from-purple-400 dark:via-pink-400 dark:to-rose-400 bg-clip-text text-transparent group-hover:opacity-90 transition-opacity">
               QUIZPLAY
             </h1>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-widest uppercase -mt-1">
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-widest uppercase -mt-0.5">
               Interactive Gaming
             </p>
           </div>
@@ -56,7 +65,7 @@ const AppNavbar = ({ openModal }) => {
               key={link.name}
               to={link.path}
               className={({ isActive }) =>
-                `px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                `px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   isActive
                     ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md shadow-purple-500/30 scale-105"
                     : "text-slate-600 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-slate-200/50 dark:hover:bg-slate-700/50"
@@ -70,8 +79,7 @@ const AppNavbar = ({ openModal }) => {
         </nav>
 
         {/* Right Actions (Theme Toggle & Auth Buttons) */}
-        <div className="hidden md:flex items-center gap-3">
-          {/* Dark Mode Toggle */}
+        <div className="hidden md:flex items-center gap-2 lg:gap-3">
           <button
             onClick={toggleTheme}
             aria-label="Toggle Dark Mode"
@@ -86,7 +94,7 @@ const AppNavbar = ({ openModal }) => {
 
           <button
             type="button"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700/60 transition-all duration-300 hover:scale-105 cursor-pointer"
+            className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700/60 transition-all duration-300 hover:scale-105 cursor-pointer"
             data-modal="modal-login"
             onClick={openModal}
           >
@@ -96,17 +104,17 @@ const AppNavbar = ({ openModal }) => {
 
           <button
             type="button"
-            className="flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:from-purple-500 hover:to-rose-400 shadow-lg shadow-purple-500/25 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/40 cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:from-purple-500 hover:to-rose-400 shadow-lg shadow-purple-500/25 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/40 cursor-pointer"
             data-modal="modal-register"
             onClick={openModal}
           >
             <UserPlus className="w-4 h-4" />
-            REGISTER
+            <span className="hidden sm:inline">REGISTER</span>
           </button>
         </div>
 
         {/* Mobile Hamburger Controls */}
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex md:hidden items-center gap-1 sm:gap-2">
           <button
             onClick={toggleTheme}
             aria-label="Toggle Dark Mode"
@@ -116,7 +124,7 @@ const AppNavbar = ({ openModal }) => {
           </button>
           <button
             onClick={toggleMobileMenu}
-            className="p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none"
+            className="p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500/50 rounded-lg"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -124,9 +132,13 @@ const AppNavbar = ({ openModal }) => {
       </div>
 
       {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-[#090d16]/95 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-4 animate-fade-in backdrop-blur-xl">
-          <nav className="flex flex-col gap-2">
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="bg-white/95 dark:bg-[#090d16]/95 border-b border-slate-200 dark:border-slate-800 px-4 pt-4 pb-6 space-y-4 backdrop-blur-xl">
+          <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
@@ -175,7 +187,7 @@ const AppNavbar = ({ openModal }) => {
             </button>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };

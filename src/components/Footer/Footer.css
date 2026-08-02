@@ -1,11 +1,18 @@
 .footer {
-  border-top: 1px solid gray;
+  border-top: 1px solid var(--border-color, #e2e8f0);
   margin-top: 70px;
   padding: 25px 10%;
   display: flex;
   justify-content: space-between;
   font-size: 15px;
   position: relative;
+  background: var(--bg-secondary, rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(16px);
+  transition: background-color 0.3s ease;
+}
+
+.dark .footer {
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .footer-left span {
@@ -17,6 +24,7 @@
   justify-content: center;
   gap: 30px;
 }
+
 @media (max-width: 1024px) {
   .footer {
     padding: 25px 5%;

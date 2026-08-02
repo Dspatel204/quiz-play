@@ -7,9 +7,9 @@ const Footer = () => {
   return (
     <footer className="mt-20 border-t border-slate-200 dark:border-slate-800/80 bg-white/60 dark:bg-[#090d16]/80 backdrop-blur-xl transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Col 1: Brand info */}
-          <div className="space-y-4 md:col-span-1">
+          <div className="space-y-4 lg:col-span-1">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 p-0.5 shadow-md shadow-purple-500/20">
                 <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
@@ -60,7 +60,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <p>© {new Date().getFullYear()} <span className="font-semibold text-purple-600 dark:text-purple-400">QuizPlay Games</span>. All Rights Reserved.</p>
           <p className="flex items-center gap-1">

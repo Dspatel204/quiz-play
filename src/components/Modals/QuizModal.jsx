@@ -100,12 +100,10 @@ const QuizModal = ({ closeFn = () => null, open = false, quizId = "kbc-quiz" }) 
     }
   }, [open, quizId]);
 
-  // Timer per question
   useEffect(() => {
     if (!open || completed || isAnswerConfirmed) return;
 
     if (timeLeft === 0) {
-      // Auto move to next or reveal answer
       handleNext();
       return;
     }
@@ -139,7 +137,6 @@ const QuizModal = ({ closeFn = () => null, open = false, quizId = "kbc-quiz" }) 
       setIsAnswerConfirmed(false);
     } else {
       setCompleted(true);
-      // Trigger confetti celebration
       try {
         confetti({
           particleCount: 100,
@@ -167,10 +164,9 @@ const QuizModal = ({ closeFn = () => null, open = false, quizId = "kbc-quiz" }) 
     <Modal open={open}>
       <div className="modal--mask">
         <div className="relative w-full max-w-xl mx-4 bg-white dark:bg-[#0f172a] rounded-3xl shadow-2xl border border-slate-200 dark:border-purple-950/60 overflow-hidden animate-scale-up backdrop-blur-2xl">
-          {/* Header Bar */}
           <div className="relative bg-gradient-to-r from-purple-700 via-pink-600 to-rose-600 p-6 text-white overflow-hidden">
             <div className="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-xl pointer-events-none"></div>
-            
+
             <button
               onClick={closeFn}
               className="absolute top-4 right-4 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-colors cursor-pointer"
@@ -185,7 +181,6 @@ const QuizModal = ({ closeFn = () => null, open = false, quizId = "kbc-quiz" }) 
             </div>
             <h2 className="text-2xl font-black tracking-tight">{quiz.title}</h2>
 
-            {/* Progress Bar */}
             <div className="mt-4">
               <div className="flex justify-between items-center text-xs font-semibold mb-1 opacity-90">
                 <span>Question {currentIndex + 1} of {quiz.questions.length}</span>
@@ -200,11 +195,9 @@ const QuizModal = ({ closeFn = () => null, open = false, quizId = "kbc-quiz" }) 
             </div>
           </div>
 
-          {/* Modal Body */}
           <div className="p-6 md:p-8">
             {!completed ? (
               <div className="space-y-6">
-                {/* Question and Timer */}
                 <div className="flex items-start justify-between gap-4">
                   <h3 className="text-lg md:text-xl font-bold text-slate-800 dark:text-slate-100 leading-snug">
                     {currentQuestion.question}
@@ -215,7 +208,6 @@ const QuizModal = ({ closeFn = () => null, open = false, quizId = "kbc-quiz" }) 
                   </div>
                 </div>
 
-                {/* Options List */}
                 <div className="grid grid-cols-1 gap-3">
                   {currentQuestion.options.map((option, index) => {
                     const isSelected = selectedAnswer === index;
@@ -248,7 +240,6 @@ const QuizModal = ({ closeFn = () => null, open = false, quizId = "kbc-quiz" }) 
                   })}
                 </div>
 
-                {/* Controls */}
                 <div className="pt-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-800">
                   <div className="text-xs font-bold text-slate-500 dark:text-slate-400">
                     Score: <span className="text-purple-600 dark:text-purple-400 text-sm">{score}</span>
@@ -270,7 +261,6 @@ const QuizModal = ({ closeFn = () => null, open = false, quizId = "kbc-quiz" }) 
                 </div>
               </div>
             ) : (
-              /* Quiz Completion Screen */
               <div className="text-center py-6 space-y-6 animate-fade-in">
                 <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 text-white shadow-xl shadow-pink-500/30 animate-bounce">
                   <Trophy className="w-10 h-10" />
@@ -285,7 +275,6 @@ const QuizModal = ({ closeFn = () => null, open = false, quizId = "kbc-quiz" }) 
                   </p>
                 </div>
 
-                {/* Score badge */}
                 <div className="p-4 rounded-2xl bg-purple-50 dark:bg-slate-800/80 border border-purple-200 dark:border-purple-800/60 max-w-xs mx-auto">
                   <div className="text-xs uppercase font-extrabold text-purple-600 dark:text-purple-400 tracking-wider">
                     Final Result
@@ -295,7 +284,6 @@ const QuizModal = ({ closeFn = () => null, open = false, quizId = "kbc-quiz" }) 
                   </div>
                 </div>
 
-                {/* Actions */}
                 <div className="flex items-center justify-center gap-3 pt-2">
                   <button
                     type="button"

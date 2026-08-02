@@ -25,13 +25,13 @@ const OtpScreen = ({closeFn}) => {
       };
   return (
     <div className="modal--mask">
-        <div className="modal-window">
+        <div className="modal-window bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-purple-950/60">
           <div className="close-modal-div" onClick={closeFn}>
-            <img src={closeIcon} alt="" />
+            <img src={closeIcon} alt="Close" className="w-5 h-5" />
           </div>
           <header className="modal-header-title">
             <h1>Login</h1>
-            <p>OTP hase been send you on your mobile number</p>
+            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">OTP has been sent to your mobile number</p>
           </header>
           <div className="modal--body">
             <form onSubmit={handleSubmit}>
@@ -68,19 +68,19 @@ const OtpScreen = ({closeFn}) => {
                     checked={formData.rememberMe}
                     onChange={handleInputChange}
                   />
-                  <label htmlFor="rememberMe">Remember me</label>
+                  <label htmlFor="rememberMe" className="text-slate-600 dark:text-slate-400">Remember me</label>
                 </div>
                 <div>
-                  <p>Forget Password?</p>
+                  <p className="text-purple-600 dark:text-purple-400">Forget Password?</p>
                 </div>
               </div>
               <button className="submit-btn" type="submit" >
                 Login
               </button>
-              <p className="fontStyle text-light text-center mt-4 mb-5">
+              <p className="fontStyle text-slate-500 dark:text-slate-400 text-center mt-4 mb-5">
                 Don't have an account?{" "}
                 <span
-                  className="me-3 fw-bold "
+                  className="me-3 fw-bold text-purple-600 dark:text-purple-400"
                   style={{ cursor: "pointer" }}
                   data-modal="modal-register"
                 >

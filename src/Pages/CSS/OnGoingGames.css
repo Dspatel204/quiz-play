@@ -1,6 +1,11 @@
 .onGoingPageContainer, .allGamesPageContainer {
-    padding: 40px ;
+    padding: 40px;
     padding-bottom: 0;
+    background-color: var(--bg-primary, #f8fafc);
+    transition: background-color 0.3s ease;
+}
+.dark .onGoingPageContainer, .dark .allGamesPageContainer {
+    background-color: var(--bg-primary, #090d16);
 }
 .onGoingPageContainer .backHeading, .allGamesPageContainer .backHeading{
     display: flex;
@@ -17,10 +22,25 @@
     display: grid;
     grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
+    gap: 20px;
 }
 
 .cardWidth{
     width: 207px;
+    background: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardWidth:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(113, 73, 198, 0.25);
+}
+
+.dark .cardWidth {
+    background: var(--bg-card, #1e293b);
+    border-color: var(--border-color, #334155);
 }
 
 @media screen and (max-width: 1150px) {

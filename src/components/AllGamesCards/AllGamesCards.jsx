@@ -4,9 +4,13 @@ import { LiaMedalSolid, LiaTrophySolid } from "react-icons/lia";
 
 const AllGamesCards = ({numOfCards}) => {
   return (
-    <div className="cardsGrid">
+    <div className="cardsGrid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {[...Array(numOfCards)].map((_, index) => (
-        <div className="rectangleCardsContainer" key={index}>
+        <div
+          className="rectangleCardsContainer card-hover animate-slide-up"
+          style={{ animationDelay: `${index * 0.05}s`, opacity: 0 }}
+          key={index}
+        >
           <div className="rectangleCard">
             <img src={slide_image_2} alt={`latestImg`} width="180px" />
           </div>

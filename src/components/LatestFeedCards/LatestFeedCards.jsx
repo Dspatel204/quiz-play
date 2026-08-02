@@ -10,15 +10,19 @@ const LatestFeedCards = ({ numOfCards }) => {
     Quizman, hundredquiz, Purplequiz, Rummyquiz, Quizman
   ]
   return (
-    <div className="latestCardsContainer">
+    <div className="latestCardsContainer grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
       {[...Array(numOfCards)].map((e, index) => (
-        <div className="lastestCard" key={index}>
-          <div className="latestImg">
-            <img src={images[index]} alt={`latestImg_${index}`} />
+        <div
+          className="lastestCard card-hover animate-slide-up"
+          style={{ animationDelay: `${index * 0.05}s`, opacity: 0 }}
+          key={index}
+        >
+          <div className="latestImg overflow-hidden rounded-t-xl">
+            <img src={images[index]} alt={`latestImg_${index}`} className="w-full h-48 object-cover" />
           </div>
           <div className="latestCarddetails">
             <h2 className="latestCardTitle">Living</h2>
-            <p>Bienvenue sur le Quiz du blog Fun Test !Ce Quiz comporte</p>
+            <p className="text-slate-500 dark:text-slate-400 text-sm">Bienvenue sur le Quiz du blog Fun Test !Ce Quiz comporte</p>
             <div className="nameMonths">
               <span>JOHN DOE</span>
               <span>

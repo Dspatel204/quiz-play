@@ -24,7 +24,6 @@ const LoginScreen = ({ closeFn, openRegisterModal = () => null, openQuizModal = 
   return (
     <div className="modal--mask">
       <div className="relative w-full max-w-md mx-4 bg-white dark:bg-[#0f172a] rounded-3xl shadow-2xl border border-slate-200 dark:border-purple-950/60 overflow-hidden animate-scale-up backdrop-blur-2xl">
-        {/* Header */}
         <div className="relative bg-gradient-to-r from-purple-700 via-pink-600 to-rose-600 p-6 text-white text-center">
           <button
             onClick={closeFn}
@@ -33,17 +32,16 @@ const LoginScreen = ({ closeFn, openRegisterModal = () => null, openQuizModal = 
           >
             <X className="w-5 h-5" />
           </button>
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white/10 mb-2">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white/10 mb-2 animate-fade-in">
             <LogIn className="w-6 h-6 text-amber-300" />
           </div>
-          <h2 className="text-2xl font-black">Welcome Back</h2>
-          <p className="text-xs text-purple-200 mt-1">Log in to enter live quiz tournaments</p>
+          <h2 className="text-2xl font-black animate-fade-in" style={{ animationDelay: '0.1s', opacity: 0 }}>Welcome Back</h2>
+          <p className="text-xs text-purple-200 mt-1 animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0 }}>Log in to enter live quiz tournaments</p>
         </div>
 
-        {/* Body */}
         <div className="p-6 md:p-8">
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
+            <div className="animate-slide-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
               <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                 Email Address
               </label>
@@ -61,7 +59,7 @@ const LoginScreen = ({ closeFn, openRegisterModal = () => null, openQuizModal = 
               </div>
             </div>
 
-            <div>
+            <div className="animate-slide-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
               <label className="block text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1.5">
                 Password
               </label>
@@ -79,7 +77,7 @@ const LoginScreen = ({ closeFn, openRegisterModal = () => null, openQuizModal = 
               </div>
             </div>
 
-            <div className="flex items-center justify-between text-xs pt-1">
+            <div className="flex items-center justify-between text-xs pt-1 animate-slide-up" style={{ animationDelay: '0.3s', opacity: 0 }}>
               <label className="flex items-center gap-2 cursor-pointer text-slate-600 dark:text-slate-400">
                 <input
                   type="checkbox"
@@ -97,7 +95,7 @@ const LoginScreen = ({ closeFn, openRegisterModal = () => null, openQuizModal = 
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-2xl font-bold text-white bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:from-purple-500 hover:to-rose-400 shadow-lg shadow-purple-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer mt-2"
+              className="w-full py-3.5 rounded-2xl font-bold text-white bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:from-purple-500 hover:to-rose-400 shadow-lg shadow-purple-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer mt-2 btn-gradient"
             >
               Sign In
             </button>

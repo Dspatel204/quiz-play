@@ -13,11 +13,18 @@ import slide_image_2 from "../../Assets/images/QuizImages/scienceQuiz.png";
 const OnGoingGames = () => {
   return (
     <>
-    <div className="swiper-container">
+    <div className="swiper-container bg-slate-50 dark:bg-[#090d16] transition-colors duration-300">
+      <div className="container-max py-8">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">Ongoing Games</h2>
+          <a href="/ongoingGames" className="text-purple-600 dark:text-purple-400 font-semibold hover:underline transition-colors text-sm">
+            View All →
+          </a>
+        </div>
+      </div>
       <div className="swiper-wrapper">
         <Swiper
           className="pl"
-          // install Swiper modules
           modules={[Navigation, Scrollbar, A11y]}
           navigation={{
             nextEl: ".swiper-button-next",
@@ -32,7 +39,6 @@ const OnGoingGames = () => {
               spaceBetween: 100,
               marginLeft: "50px"
             },
-
             425: {
               slidesPerView: 2,
               spaceBetween: 10,
@@ -65,7 +71,7 @@ const OnGoingGames = () => {
         >
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
             <SwiperSlide key={index}>
-              <div className="ongoingCard">
+              <div className="ongoingCard card-hover animate-slide-up" style={{ animationDelay: `${index * 0.05}s`, opacity: 0 }}>
                 <div className="ongoingImgWrapper">
                   <div className="ongoingImg">
                     <img
@@ -114,13 +120,10 @@ const OnGoingGames = () => {
       </div>
 
       <div className="swiper-button-next">
-        {/* <BsArrowRight size={25.6} color="#A49D9D80" /> */}
       </div>
       <div className="swiper-button-prev">
-        {/* <BsArrowLeft size={25.6} color="#A49D9D80" /> */}
       </div>
     </div>
-    {/* <EntryModal show={showEntryModal} handleClose={handleEntryModalClose}/> */}
     </>
   );
 };
