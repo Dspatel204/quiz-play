@@ -1,72 +1,91 @@
 import React from "react";
 import Modal from "../../Modal";
-// import { Modal } from "react-bootstrap";
-import "./EntryModal.css";
-import closeIcon from "../../Assets/images/close.png";
 import gameImg from "../../Assets/images/QuizImages/scienceQuiz.png";
-import { LuUsers, LuClock3 } from "react-icons/lu";
-import { LiaMedalSolid, LiaTrophySolid } from "react-icons/lia";
+import { Users, Clock, Medal, Trophy, X, Flame } from "lucide-react";
 
 const EntryModal = ({ closeFn = () => null, open = false }) => {
   return (
     <Modal open={open}>
-      <div className=" modal--mask">
-        <div className="entryModal" style={{position:"relative"}}>
-        <div className="close-modal-icon" style={{position:"absolute", right:"20px", top:"10px"}} onClick={closeFn}>
-            <img src={closeIcon} alt="" style={{cursor:"pointer"}} width="35px" />
+      <div className="modal--mask">
+        <div className="relative w-full max-w-lg mx-4 bg-white dark:bg-[#0f172a] rounded-3xl shadow-2xl border border-slate-200 dark:border-purple-950/60 overflow-hidden animate-scale-up backdrop-blur-2xl">
+          {/* Header & Image */}
+          <div className="relative bg-gradient-to-r from-purple-700 via-pink-600 to-rose-600 p-6 text-white text-center">
+            <button
+              onClick={closeFn}
+              className="absolute top-4 right-4 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white transition-colors cursor-pointer"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex justify-center mb-3">
+              <div className="relative w-28 h-28 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 p-1 bg-black/20 backdrop-blur-sm">
+                <img src={gameImg} alt="Game preview" className="w-full h-full object-cover rounded-xl" />
+              </div>
+            </div>
+
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-amber-300 text-xs font-bold uppercase tracking-wider mb-1">
+              <Flame className="w-3.5 h-3.5" />
+              Live Tournament
+            </div>
+            <h2 className="text-2xl font-black">Science Quiz Battle</h2>
           </div>
-          <div className="entryContent">
-            <div className="d-flex justify-content-center">
-              <img className="gameimg" src={gameImg} alt="" width="170px" />
-            </div>
-            <div className="entry-content">
-              <div className="d-flex justify-content-center align-items-center top-div">
-                <LuUsers size={25} />
-                <span>2</span>
+
+          {/* Body details */}
+          <div className="p-6 md:p-8 space-y-6">
+            {/* Stats row */}
+            <div className="grid grid-cols-3 gap-3 text-center">
+              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+                <div className="text-[10px] font-extrabold uppercase text-slate-400">Prize Pool</div>
+                <div className="text-lg font-black text-purple-600 dark:text-purple-400 mt-0.5">₹ 1,00,000</div>
               </div>
-              <div className="d-flex mt-4 justify-content-between">
-                <div className="entry-left">
-                  <p className="prize-text gray">Prize Pool</p>
-                  <p className="prize-number">100000</p>
-                </div>
-                <div className="entry-center elements-center">
-                  <div className="liveBtn">
-                    <span>
-                      <LuClock3 />
-                    </span>
-                    <span className="ms-1">Live</span>
-                  </div>
-                  <p className="gray">Ends On 11:33 PM</p>
-                </div>
-                <div className="entry-right elements-center">
-                  <p className="gray ">Entry Fee</p>
-                  <button>₹ 10 </button>
+              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+                <div className="text-[10px] font-extrabold uppercase text-slate-400">Status</div>
+                <div className="flex items-center justify-center gap-1 text-xs font-bold text-rose-500 mt-1">
+                  <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                  Live Now
                 </div>
               </div>
-              <div className="quiz-slot">
-                <p className="quiz-slot-text mb-0">Quiz Slot/Entries</p>
-                <input
-                  type="range"
-                  min="1"
-                  max="1000"
-                  value="0"
-                  className="slider"
-                  id="myRange"
-                  readOnly
-                />
-                <p className="slot-filled">0 Filled of 0</p>
-              </div>
-              <div className="medalsTrophyMain">
-                <p className="medals fs-5">
-                  <LiaMedalSolid size={30} />
-                  ₹100
-                </p>
-                <p className="trophy fs-5">
-                  <LiaTrophySolid size={30} />
-                  75%
-                </p>
+              <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+                <div className="text-[10px] font-extrabold uppercase text-slate-400">Entry Fee</div>
+                <div className="text-lg font-black text-emerald-500 mt-0.5">₹ 10</div>
               </div>
             </div>
+
+            {/* Slots progress bar */}
+            <div className="space-y-2">
+              <div className="flex justify-between items-center text-xs font-bold text-slate-600 dark:text-slate-300">
+                <span className="flex items-center gap-1.5">
+                  <Users className="w-4 h-4 text-purple-500" />
+                  Quiz Slots Filled
+                </span>
+                <span className="text-purple-600 dark:text-purple-400">750 / 1000 Filled</span>
+              </div>
+              <div className="w-full h-3 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden p-0.5">
+                <div className="h-full bg-gradient-to-r from-purple-600 to-pink-500 rounded-full" style={{ width: "75%" }}></div>
+              </div>
+            </div>
+
+            {/* Badges */}
+            <div className="flex items-center justify-around py-3 px-4 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/60 text-purple-700 dark:text-purple-300 text-sm font-bold">
+              <div className="flex items-center gap-2">
+                <Medal className="w-5 h-5 text-amber-500" />
+                <span>Max Win: ₹100</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Trophy className="w-5 h-5 text-rose-500" />
+                <span>Win Rate: 75%</span>
+              </div>
+            </div>
+
+            {/* Action */}
+            <button
+              type="button"
+              onClick={closeFn}
+              className="w-full py-4 rounded-2xl font-black text-base text-white bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:from-purple-500 hover:to-rose-400 shadow-xl shadow-purple-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+            >
+              Pay ₹10 & Join Battle
+            </button>
           </div>
         </div>
       </div>
