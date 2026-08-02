@@ -4,9 +4,6 @@
     background-color: var(--bg-primary, #f8fafc);
     transition: background-color 0.3s ease;
 }
-.dark .onGoingPageContainer, .dark .allGamesPageContainer {
-    background-color: var(--bg-primary, #090d16);
-}
 .onGoingPageContainer .backHeading, .allGamesPageContainer .backHeading{
     display: flex;
     align-items: center;
@@ -36,11 +33,6 @@
 .cardWidth:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px rgba(113, 73, 198, 0.25);
-}
-
-.dark .cardWidth {
-    background: var(--bg-card, #1e293b);
-    border-color: var(--border-color, #334155);
 }
 
 @media screen and (max-width: 1150px) {
